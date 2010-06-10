@@ -23,7 +23,11 @@ module FixtureReplacement
     end
 
     def rails_root
-      defined?(RAILS_ROOT) ? RAILS_ROOT : "."
+      if defined?(Rails) and Rails.respond_to?(:root)
+        Rails.root
+      else
+        defined?(RAILS_ROOT) ? RAILS_ROOT : "."
+      end
     end
 
     def reload!
