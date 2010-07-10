@@ -13,4 +13,4 @@ end
 
 load "fr.rb"
 
-FixtureReplacement.load_example_data
+require 'fixture_replacement/railtie'
